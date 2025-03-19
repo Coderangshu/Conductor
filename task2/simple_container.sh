@@ -20,7 +20,7 @@ echo -e "\n\e[1;32mOutput Subtask 2a\e[0m"
 if [ "$ID" = "arch" ]; then
     sudo chroot $SIMPLE_CONTAINER_ROOT /usr/lib64/ld-linux-x86-64.so.2 /container_prog subtask1
 elif [ "$ID" = "debian" ]; then
-    sudo chroot $SIMPLE_CONTAINER_ROOT /lib64/ld-linux-x86-64.so.2 /container_prog subtask1
+    sudo chroot $SIMPLE_CONTAINER_ROOT /container_prog subtask1
 else
     echo "Unknown distribution: $ID"
 fi
@@ -35,7 +35,7 @@ echo -e "\n\e[1;32mOutput Subtask 2b\e[0m"
 if [ "$ID" = "arch" ]; then
     sudo unshare --fork --pid --uts --mount-proc chroot $SIMPLE_CONTAINER_ROOT /usr/lib64/ld-linux-x86-64.so.2 /container_prog subtask2
 elif [ "$ID" = "debian" ]; then
-    sudo unshare --fork --pid --uts --mount-proc chroot $SIMPLE_CONTAINER_ROOT /lib64/ld-linux-x86-64.so.2 /container_prog subtask2
+    sudo unshare --fork --pid --uts --mount-proc chroot $SIMPLE_CONTAINER_ROOT /container_prog subtask2
 else
     echo "Unknown distribution: $ID"
 fi
@@ -61,7 +61,7 @@ echo -e "\n\e[1;32mOutput Subtask 2c\e[0m"
 if [ "$ID" = "arch" ]; then
     sudo unshare --fork --pid --uts --ipc --mount-proc chroot $SIMPLE_CONTAINER_ROOT /usr/lib64/ld-linux-x86-64.so.2 /container_prog subtask3 &
 elif [ "$ID" = "debian" ]; then
-    sudo unshare --fork --pid --uts --ipc --mount-proc chroot $SIMPLE_CONTAINER_ROOT /lib64/ld-linux-x86-64.so.2 /container_prog subtask3 &
+    sudo unshare --fork --pid --uts --ipc --mount-proc chroot $SIMPLE_CONTAINER_ROOT /container_prog subtask3 &
 else
     echo "Unknown distribution: $ID"
 fi
