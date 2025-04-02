@@ -1,0 +1,3 @@
+FROM ubuntu:focal
+COPY ./counter-service/ /
+RUN cd counter-service && apt-get update && apt-get install -y build-essential && make
